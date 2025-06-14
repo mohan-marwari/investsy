@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="col-md-3 mb-4">
             <img src="media/images/logo.svg" alt="Zerodha Logo" style={{ width: "60%" }} />
             <p className="mt-3 text-muted" style={{ fontSize: "14px" }}>
-              &copy; 2010 - 2024, Not Zerodha Broking Ltd. All rights reserved.
+              &copy; 2010 - 2025, Not Zerodha Broking Ltd. All rights reserved.
             </p>
           </div>
 
