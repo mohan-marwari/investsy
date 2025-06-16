@@ -12,7 +12,7 @@ const Pricing = () => {
             </p>
             <a href="#" className="text-decoration-none fw-medium text-primary">
               See Pricing{" "}
-              <i className="fa fa-long-arrow-right ms-1" aria-hidden="true"></i>
+              <i className="fa long-arrow-right ms-1" aria-hidden="true"></i>
             </a>
           </div>
 
