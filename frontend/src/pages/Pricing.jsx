@@ -1,11 +1,13 @@
-import HeroSection from '../components/pricing/HeroSection';
-import BrokerageInfo from '../components/pricing/BrokerageInfo';
+import Hero from '../components/pricing/Hero';
+import OpenAccount from '../components/common/OpenAccount';
+import Brokerage from '../components/pricing/Brokerage';
 
 const Pricing = () => {
   return (
     <div>
-      <HeroSection />
-      <BrokerageInfo />
+      <Hero />
+      <OpenAccount />
+      <Brokerage />
     </div>
   );
 };
