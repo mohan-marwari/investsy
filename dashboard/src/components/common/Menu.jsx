@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -18,7 +19,7 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="logo.png" style={{ width: "50px" }} />
+      <img src={logo} style={{ width: "40px" }} />
       <div className="menus">
         <ul>
           <li>
@@ -68,7 +69,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to="funds"
+              to="/funds"
               onClick={() => handleMenuClick(4)}
             >
               <p className={selectedMenu === 4 ? activeMenuClass : menuClass}>
