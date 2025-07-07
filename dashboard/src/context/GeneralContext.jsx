@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
 
 // Create context without including component imports
 export const GeneralContext = createContext();
@@ -20,6 +20,8 @@ export const GeneralContextProvider = ({ children }) => {
   return (
     <GeneralContext.Provider
       value={{
+        isBuyWindowOpen,
+        selectedStockUID,
         openBuyWindow: handleOpenBuyWindow,
         closeBuyWindow: handleCloseBuyWindow,
       }}

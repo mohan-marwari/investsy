@@ -1,21 +1,22 @@
 import { Route, Routes } from "react-router-dom";
-
+import { useContext } from "react";
 import Apps from "./Apps.jsx";
 import Funds from "./Funds.jsx";
 import Holdings from "./Holdings.jsx";
-
 import Orders from "./Orders.jsx";
 import Positions from "./Positions.jsx";
 import Summary from "../common/Summary.jsx";
 import WatchList from "./WatchList.jsx";
-import { GeneralContextProvider } from "../../context/GeneralContext.jsx";
+import { GeneralContextProvider, GeneralContext } from "../../context/GeneralContext.jsx";
+import BuyActionWindow from "../actions/BuyActionWindow.jsx";
 
-const Dashboard = () => {
+const DashboardContent = () => {
+  const { isBuyWindowOpen, selectedStockUID } = useContext(GeneralContext);
+
   return (
-    <div className="dashboard-container">
-      <GeneralContextProvider>
-        <WatchList />
-      </GeneralContextProvider>
+    <>
+      <WatchList />
+      {isBuyWindowOpen && <BuyActionWindow uid={selectedStockUID} />}
       <div className="content">
         <Routes>
           <Route exact path="/" element={<Summary />} />
@@ -26,6 +27,16 @@ const Dashboard = () => {
           <Route path="/apps" element={<Apps />} />
         </Routes>
       </div>
+    </>
+  );
+};
+
+const Dashboard = () => {
+  return (
+    <div className="dashboard-container">
+      <GeneralContextProvider>
+        <DashboardContent />
+      </GeneralContextProvider>
     </div>
   );
 };
