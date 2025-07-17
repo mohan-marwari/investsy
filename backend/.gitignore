@@ -1,0 +1,34 @@
+# Node modules (libraries installed via npm)
+node_modules/
+
+# Environment variables (never share secrets like DB passwords, API keys)
+.env
+
+# Log files
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files (for Mac/Windows)
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Build output (if any)
+dist/
+build/
+
+# Optional: coverage from tests
+coverage/
+
+# Optional: database dumps or temp data
+*.sqlite
+*.db
+*.tgz
+temp/
+tmp/
