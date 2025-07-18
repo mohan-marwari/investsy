@@ -11,4 +11,13 @@ const createOrder = async (req, res) => {
   }
 };
 
-module.exports = { createOrder };
+const getOrders = async (req, res) => {
+  try {
+    const orders = await OrdersModel.find(); // Fetch all orders from DB
+    res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+module.exports = { createOrder, getOrders };
