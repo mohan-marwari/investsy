@@ -8,15 +8,29 @@ import Positions from "./Positions.jsx";
 import Summary from "../common/Summary.jsx";
 import WatchList from "./WatchList.jsx";
 import { GeneralContextProvider, GeneralContext } from "../../context/GeneralContext.jsx";
-import BuyActionWindow from "../actions/BuyActionWindow.jsx";
+import TradeActionWindow from "../actions/TradeActionWindow.jsx";
 
 const DashboardContent = () => {
-  const { isBuyWindowOpen, selectedStockUID } = useContext(GeneralContext);
+  const {
+    isBuyWindowOpen,
+    isSellWindowOpen,
+    selectedStockUID,
+    activeSide,
+    closeActiveWindow,
+  } = useContext(GeneralContext);
+
+  const showTradeWindow = isBuyWindowOpen || isSellWindowOpen;
 
   return (
     <>
       <WatchList />
-      {isBuyWindowOpen && <BuyActionWindow uid={selectedStockUID} />}
+      {showTradeWindow && (
+        <TradeActionWindow
+          uid={selectedStockUID}
+          side={activeSide}
+          onClose={closeActiveWindow}
+        />
+      )}
       <div className="content">
         <Routes>
           <Route exact path="/" element={<Summary />} />

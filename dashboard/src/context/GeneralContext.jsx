@@ -3,52 +3,58 @@ import React, { createContext, useState } from "react";
 export const GeneralContext = createContext();
 
 export const GeneralContextProvider = ({ children }) => {
-  // Buy Window State
   const [isBuyWindowOpen, setIsBuyWindowOpen] = useState(false);
-  const [selectedStockUID, setSelectedStockUID] = useState("");
-
-  // Sell Window State
   const [isSellWindowOpen, setIsSellWindowOpen] = useState(false);
+  const [selectedStockUID, setSelectedStockUID] = useState("");
+  const [tradeDefaults, setTradeDefaults] = useState({ qty: 1, price: 0 });
 
-  // Open Buy Window
-  const handleOpenBuyWindow = (uid) => {
-    setIsBuyWindowOpen(true);
+  // BUY
+  const openBuyWindow = (uid, qty = 1, price = 0) => {
+    setIsSellWindowOpen(false);
     setSelectedStockUID(uid);
+    setTradeDefaults({ qty, price });
+    setIsBuyWindowOpen(true);
   };
-
-  // Close Buy Window
-  const handleCloseBuyWindow = () => {
+  const closeBuyWindow = () => {
     setIsBuyWindowOpen(false);
     setSelectedStockUID("");
   };
 
-  // Open Sell Window
-  const handleOpenSellWindow = (uid) => {
-    setIsSellWindowOpen(true);
+  // SELL
+  const openSellWindow = (uid, qty = 1, price = 0) => {
+    setIsBuyWindowOpen(false);
     setSelectedStockUID(uid);
+    setTradeDefaults({ qty, price });
+    setIsSellWindowOpen(true);
   };
-
-  // Close Sell Window
-  const handleCloseSellWindow = () => {
+  const closeSellWindow = () => {
     setIsSellWindowOpen(false);
     setSelectedStockUID("");
+  };
+
+  // Derived
+  const activeSide = isBuyWindowOpen ? "BUY" : isSellWindowOpen ? "SELL" : null;
+  const closeActiveWindow = () => {
+    if (activeSide === "BUY") closeBuyWindow();
+    else if (activeSide === "SELL") closeSellWindow();
   };
 
   return (
     <GeneralContext.Provider
       value={{
-        // Buy
+        // state
         isBuyWindowOpen,
-        openBuyWindow: handleOpenBuyWindow,
-        closeBuyWindow: handleCloseBuyWindow,
-
-        // Sell
         isSellWindowOpen,
-        openSellWindow: handleOpenSellWindow,
-        closeSellWindow: handleCloseSellWindow,
-
-        // Selected Stock
         selectedStockUID,
+        tradeDefaults,
+        // actions
+        openBuyWindow,
+        closeBuyWindow,
+        openSellWindow,
+        closeSellWindow,
+        // derived
+        activeSide,
+        closeActiveWindow,
       }}
     >
       {children}
