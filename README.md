@@ -3,6 +3,8 @@ _A Full-Stack Trading Platform inspired by Zerodha_
 
 ![Logo](frontend/public/media/images/logo.svg)
 
+---
+
 ## 📌 Overview  
 
 **Investsy** is a modern full-stack trading platform that replicates key functionalities of platforms like Zerodha.  
@@ -66,3 +68,98 @@ investsy/
 │   ├── package.json         # Frontend dependencies
 │
 └── README.md                # Project documentation
+```
+
+---
+
+## 🛠️ Installation & Setup  
+
+### 1️⃣ Clone the repository  
+```bash
+git clone https://github.com/mohan-marwari/investsy.git
+cd investsy
+```
+
+### 2️⃣ Backend Setup  
+```bash
+cd backend
+npm install
+
+# create a .env file for DB connection & secrets
+npm start
+```
+Backend will run on **http://localhost:5000** (configurable)
+
+### 3️⃣ Dashboard Setup  
+```bash
+cd dashboard
+npm install
+npm run dev
+```
+Dashboard will be available at **http://localhost:5173**
+
+### 4️⃣ Frontend Setup  
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Frontend marketing site will be available at **http://localhost:5174**
+
+---
+
+## ✨ Features  
+
+✅ **Backend**  
+- RESTful APIs for holdings, orders, positions  
+- MongoDB integration for data persistence  
+- Modular controllers & routes  
+
+✅ **Dashboard**  
+- Interactive trading dashboard  
+- Holdings & Orders summary  
+- Visual analytics with Doughnut & Vertical charts  
+- Context API for global state  
+
+✅ **Frontend**  
+- Clean marketing website  
+- Landing, Pricing, Support & Signup pages  
+- Responsive design  
+
+---
+
+## 📸 Screenshots (Optional)  
+> _You can add dashboard & frontend UI screenshots here_  
+
+---
+
+## 📖 Future Enhancements  
+
+- ✅ Authentication (JWT + OAuth)  
+- ✅ Real-time stock price updates (WebSockets)  
+- ✅ Portfolio analytics with AI-based insights  
+- ✅ Integration with live trading APIs  
+
+---
+
+## 🤝 Contributing  
+
+Contributions are welcome!  
+
+1. Fork the repo  
+2. Create a new branch `feature/your-feature`  
+3. Commit & push changes  
+4. Create a PR  
+
+---
+
+## 📜 License  
+
+This project is licensed under the **MIT License**  
+
+---
+
+## 👨‍💻 Author  
+
+**Mohan Marwari**  
+[LinkedIn](https://www.linkedin.com/in/mohan-marwari/) | [GitHub](https://github.com/mohan-marwari)
